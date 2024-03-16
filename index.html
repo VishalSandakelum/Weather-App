@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="assets/8.0.1_normalize.css">
     <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +23,53 @@
             <i class="fa fa-search"></i>
         </form>
         <aside style="position: absolute;">
-            <div class="informationpanel"></div>
+            <div class="informationpanel d-flex flex-wrap align-content-between">
+                <div>
+                    <div class="lineone"></div>
+                    <div class="d-flex flex-wrap align-content-between city">
+                        <button>Paris</button>
+                        <button>Tokyo</button>
+                        <button>London</button>
+                        <button>Colombo</button>
+                        <button>Callifornia</button>
+                    </div>
+                </div>
+                <div class="weatherdetailspanel" style="background-color: transparent;">
+                    <div class="linetwo"></div>
+                    <div>
+                        <h1 class="weatherdetails">Weather Details</h1>
+                    </div>
+                    <div class="d-flex flex-wrap align-content-between details">
+                        <div>
+                            <div class="d-flex justify-content-between cloudy">
+                                <h6>Cloudy</h6>
+                                <h6>0%</h6>
+                            </div>
+                            <div class="cloudyimg d-flex justify-content-center">
+                                <img src="assets/img/clouds-sun.png" alt="cloudy">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-between humidity">
+                                <h6>Humidity</h6>
+                                <h6>0%</h6>
+                            </div>
+                            <div class="humidityimg d-flex justify-content-center">
+                                <img src="assets/img/humidity.png" alt="humidity">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-between wind">
+                                <h6>Wind</h6>
+                                <h6>0km/h</h6>
+                            </div>
+                            <div class="windimg d-flex justify-content-center">
+                                <img src="assets/img/wind.png" alt="wind">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </aside>
     </section>
     <script src="assets/jquery/jquery-3.7.1.min.js"></script>
