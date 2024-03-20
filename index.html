@@ -11,7 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -19,9 +19,32 @@
         <h1 class="welcome">WELCOME BACK</h1>
         <img src="assets/img/background.jpeg" alt="">
         <form>
-            <input type="search" required>
-            <i class="fa fa-search"></i>
+            <input class="cityinput" type="search" required>
+            <i class="fa fa-search searchbtn"></i>
         </form>
+        <div>
+            <div class="image">
+                <img src="assets/img/curved-arrow-with-broken-line.png" alt="arrow">
+                <img src="assets/img/newlocation.png" alt="location">
+            </div>
+            <div class="currentupdates d-flex justify-content-between align-items-center">
+                <div class="d-flex temprature">
+                    <h1>22</h1>
+                    <h1>°C</h1>
+                </div>
+                <div class="citydetails">
+                    <h1>London</h1>
+                    <h1>2023-01-13 14:30</h1>
+                </div>
+                <div class="d-flex flex-wrap justify-content-center weatherimgdetails">
+                    <img src="assets/img/wind.png" alt="" class="weatherimg">
+                    <h1>Party cloud</h1>
+                </div>
+            </div>
+        </div>
+        <div style="position: absolute; width: 600px; height: 250px; top: 65%; left: 10%;">
+            <canvas id="myChart" style="width:100%;max-width:600px; height: 200px;"></canvas>
+        </div>
         <aside style="position: absolute;">
             <div class="informationpanel d-flex flex-wrap align-content-between">
                 <div>
@@ -74,5 +97,10 @@
     </section>
     <script src="assets/jquery/jquery-3.7.1.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/script/script.js"></script>
+    <script src="assets/script/action.js"></script>
+    <script src="assets/script/array.js"></script>
 </body>
 </html>

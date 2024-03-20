@@ -174,3 +174,77 @@ form:valid a {
 .cloudyimg>img, .humidityimg>img, .windimg>img{
     width: 45px;
 }
+
+/*--------------*/
+
+.image{
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    top: 45%;
+    left: 10%;
+}
+
+.image>:nth-child(1){
+    width: 100px;
+}
+
+.image>:nth-child(2){
+    position: relative;
+    width: 50px;
+    top: 22%;
+}
+
+.currentupdates{
+    position: absolute;
+    width: 350px;
+    height: 150px;
+    top: 45%;
+    left: 22%;
+}
+
+.temprature{
+    font-family: "Concert One", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    color: white;
+    font-size: 10px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.temprature>h1{
+    font-size: 60px;
+}
+
+.citydetails{
+    font-family: "Concert One", sans-serif;
+    font-weight: bold;
+    color: white;
+    width: fit-content;
+    height: fit-content;
+}
+
+.citydetails>:nth-child(1){
+    font-size: 30px;
+}
+
+.citydetails>:nth-child(2){
+    font-size: 15px;
+}
+
+.weatherimgdetails{
+    width: 80px;
+}
+
+.weatherimg{
+    width: 40px;
+    height: fit-content;
+}
+
+.weatherimgdetails>:nth-child(2){
+    font-family: "Concert One", sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+}

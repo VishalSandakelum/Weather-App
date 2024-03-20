@@ -1,0 +1,75 @@
+const xValues = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      data: [20,22,26,32,22,20,10],
+      borderColor: "white",
+      fill: false
+    },{ 
+        data: [0,10,20,30,40,50],
+        borderColor: "transparent",
+        fill: false,
+        pointRadius: 0,
+        pointHoverRadius: 0,
+        pointHitRadius: 0
+      }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+        xAxes: [{
+          ticks: {
+            fontColor: "white"
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            fontColor: "white"
+          }
+        }]
+      }
+  }
+});
+
+function getThisWeekMondayDate() {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday
+    const mondayDate = new Date(today); // Initialize a new Date object with the current date
+    const daysToMonday = dayOfWeek === 0 ? 1 : 1 - dayOfWeek; // Calculate the number of days until Monday (0 for Monday)
+    mondayDate.setDate(today.getDate() + daysToMonday); // Set the date to the nearest Monday
+    return mondayDate;
+}
+
+function printThisWeekDaysFromMonday() {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday
+    
+    // If today is Monday, print only today's date
+    if (dayOfWeek === 1) {
+        const day = today.getDate();
+        const month = today.getMonth() + 1;
+        const year = today.getFullYear();
+        console.log("Today's date is:", `${day}/${month}/${year} (Monday)`);
+    } else {
+        // Print all the days from Monday to today within the same week
+        const mondayDate = getThisWeekMondayDate();
+        const mondayDay = mondayDate.getDate();
+        const mondayMonth = mondayDate.getMonth() + 1;
+        const mondayYear = mondayDate.getFullYear();
+
+        console.log("This week's dates starting from Monday:");
+        for (let i = mondayDay; i <= today.getDate(); i++) {
+            console.log(`${i}/${mondayMonth}/${mondayYear}`);
+            DaysofWeekArray.push(`${mondayYear}/${mondayMonth}/${i}`);
+        }
+        console.log(DaysofWeekArray.toString());
+    }
+}
+
+function clearArray(){
+    DaysofWeekArray = null;
+    DaysofWeekArray = new Array();
+}
