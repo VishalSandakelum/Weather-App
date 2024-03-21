@@ -1,6 +1,6 @@
 const xValues = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
-new Chart("myChart", {
+const myChart =  new Chart("myChart", {
   type: "line",
   data: {
     labels: xValues,
@@ -72,4 +72,42 @@ function printThisWeekDaysFromMonday() {
 function clearArray(){
     DaysofWeekArray = null;
     DaysofWeekArray = new Array();
+    TemperatureforDateArray = null;
+    TemperatureforDateArray = new Array();
+    TempArray = null;
+    TempArray = new Array();
+}
+
+function sortDate(){
+    TemperatureforDateArray.length = DaysofWeekArray.length;
+    for(sort = 0; sort < DaysofWeekArray.length; sort++){
+        console.log(DaysofWeekArray[sort]);
+        if(DaysofWeekArray[sort].toString === TempArray[sort].date.toString){
+            console.log('Auuu');
+            TemperatureforDateArray[sort]=(TempArray[sort]);
+        }else{
+            console.log('Ava');
+            for(resort = 0; resort < DaysofWeekArray.length; resort++){
+                if(DaysofWeekArray[sort].toString === TempArray[resort].date.toString){
+                    console.log('Avaaa');
+                    TemperatureforDateArray[sort] = (TempArray[resort]);
+                    break;
+                }
+            }
+        }
+    }
+    console.log("temperature Array");
+    console.log(TemperatureforDateArray);
+}
+
+function chartData(){
+    myChart.data.datasets[0].data = [];
+    for(loop = 0; loop < TemperatureforDateArray.length; loop++){
+        addDataToChart(TemperatureforDateArray[loop].temp);
+    }
+}
+
+function addDataToChart(newData) {
+    myChart.data.datasets[0].data.push(newData);
+    myChart.update();
 }

@@ -1,5 +1,5 @@
 const APIKEY = '7e75a14025d5437085f61907241703';
-const city = /*$('.cityinput').val()*/'Galle';
+const city = /*$('.cityinput').val()*/'Tokyo';
 const days = ['2024-03-16'];
 const currentweatherurl = `https://api.weatherapi.com/v1/current.json?key=${APIKEY}&q=${city}`;
 const forecasturl = `https://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${city}`;
@@ -9,8 +9,14 @@ $('.searchbtn').click(function(){
     console.log('searching ...');
     getWeather();
     clearArray();
-    printThisWeekDaysFromMonday();
-    getWeeklyHistoryTemprature();
+    
+    try {
+        printThisWeekDaysFromMonday();
+        getWeeklyHistoryTemprature();
+    }
+    catch(err) {
+        console.log(err);
+    }
 });
 
 function getWeather(){
@@ -49,10 +55,15 @@ function displayHistoryWeather(data){
         date : `${data.forecast.forecastday[0].date}`,
         temp : `${data.forecast.forecastday[0].day.avgtemp_c}`
     }
-    RandomArray.push(temperature);
+    TempArray.push(temperature);
     console.log('Data');
-    console.log(RandomArray);
+    console.log(TempArray);
     console.log(data);
+    if(TempArray.length === DaysofWeekArray.length){
+        sortDate();
+        chartData();
+        console.log(TempArray.length);
+    }
 }
 
 function getWeeklyHistoryTemprature(){
