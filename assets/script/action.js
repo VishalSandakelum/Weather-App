@@ -34,6 +34,19 @@ const myChart =  new Chart("myChart", {
   }
 });
 
+function defaultFunction(){
+    getWeather();
+    clearArray();
+    
+    try {
+        printThisWeekDaysFromMonday();
+        getWeeklyHistoryTemprature();
+    }
+    catch(err) {
+        console.log(err);
+    }
+}
+
 function getThisWeekMondayDate() {
     const today = new Date();
     const dayOfWeek = today.getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday
@@ -89,11 +102,11 @@ function sortDate(){
             TemperatureforDateArray[sort]=(TempArray[sort]);
         }else{
             console.log('Ava');
-            IL:for(resort = 0; resort < DaysofWeekArray.length; resort++){
+            InnerLoop:for(resort = 0; resort < DaysofWeekArray.length; resort++){
                 if(DaysofWeekArray[sort].toString() === TempArray[resort].date.toString()){
                     console.log('Avaaa');
                     TemperatureforDateArray[sort] = (TempArray[resort]);
-                    break IL;
+                    break InnerLoop;
                 }
             }
         }

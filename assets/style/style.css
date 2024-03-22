@@ -197,10 +197,11 @@ form:valid a {
 
 .currentupdates{
     position: absolute;
-    width: 350px;
+    width: 360px;
     height: 150px;
     top: 45%;
     left: 22%;
+    background-color: transparent;
 }
 
 .temprature{
@@ -214,7 +215,7 @@ form:valid a {
 }
 
 .temprature>h1{
-    font-size: 60px;
+    font-size: 50px;
 }
 
 .citydetails{
@@ -235,11 +236,13 @@ form:valid a {
 
 .weatherimgdetails{
     width: 80px;
+    background-color: transparent;
 }
 
 .weatherimg{
     width: 40px;
     height: fit-content;
+    background-color: transparent;
 }
 
 .weatherimgdetails>:nth-child(2){
@@ -247,4 +250,7 @@ form:valid a {
     font-weight: bold;
     color: white;
     font-size: 15px;
+    width: 100px;
+    text-align: center;
+    background-color: transparent;
 }

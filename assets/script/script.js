@@ -1,25 +1,22 @@
 const APIKEY = '7e75a14025d5437085f61907241703';
-const city = /*$('.cityinput').val()*/'Canada';
-const days = ['2024-03-16'];
-const currentweatherurl = `https://api.weatherapi.com/v1/current.json?key=${APIKEY}&q=${city}`;
+let city = 'Canada';
 const forecasturl = `https://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${city}`;
 //const historyweatherurl = `https://api.weatherapi.com/v1/history.json?key=${APIKEY}&q=${city}&dt=${days}`;
 
 $('.searchbtn').click(function(){
     console.log('searching ...');
-    getWeather();
-    clearArray();
-    
-    try {
-        printThisWeekDaysFromMonday();
-        getWeeklyHistoryTemprature();
+    if($('.cityinput').val()===''){
+        city = 'Canada';
+        $('.citydetails>:nth-child(1)').text(city);
+    }else{
+        city = $('.cityinput').val();
+        $('.citydetails>:nth-child(1)').text(city);
     }
-    catch(err) {
-        console.log(err);
-    }
+    defaultFunction();
 });
 
 function getWeather(){
+    let currentweatherurl = `https://api.weatherapi.com/v1/current.json?key=${APIKEY}&q=${city}`;
     fetch(currentweatherurl)
     .then((response) => response.json())
     .then((data) => {
@@ -31,8 +28,16 @@ function getWeather(){
 }
 
 function displayWeather(data) {
+    console.log('current');
+    console.log(data);
     console.log(data.current.temp_c)
     $('.weatherimg').attr('src',data.current.condition.icon);
+    $('.citydetails>:nth-child(2)').text(data.current.last_updated);
+    $('.temprature>:nth-child(1)').text(data.current.temp_c);
+    $('.weatherimgdetails>:nth-child(2)').text(data.current.condition.text);
+    $('.cloudy>:nth-child(2)').text(data.current.cloud+'%');
+    $('.humidity>:nth-child(2)').text(data.current.humidity+'%');
+    $('.wind>:nth-child(2)').text(data.current.wind_kph+'%');
 }
 
 function getHistoryWeather(url){
