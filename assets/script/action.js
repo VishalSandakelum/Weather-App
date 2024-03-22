@@ -49,21 +49,22 @@ function printThisWeekDaysFromMonday() {
     
     // If today is Monday, print only today's date
     if (dayOfWeek === 1) {
-        const day = today.getDate();
-        const month = today.getMonth() + 1;
+        const day = today.getDate().toString().padStart(2, '0');
+        const month = (today.getMonth() + 1).toString().padStart(2, '0');
         const year = today.getFullYear();
         console.log("Today's date is:", `${day}/${month}/${year} (Monday)`);
     } else {
         // Print all the days from Monday to today within the same week
         const mondayDate = getThisWeekMondayDate();
-        const mondayDay = mondayDate.getDate();
-        const mondayMonth = mondayDate.getMonth() + 1;
+        const mondayDay = mondayDate.getDate().toString().padStart(2, '0');
+        const mondayMonth = (mondayDate.getMonth() + 1).toString().padStart(2, '0');
         const mondayYear = mondayDate.getFullYear();
 
         console.log("This week's dates starting from Monday:");
         for (let i = mondayDay; i <= today.getDate(); i++) {
-            console.log(`${i}/${mondayMonth}/${mondayYear}`);
-            DaysofWeekArray.push(`${mondayYear}/${mondayMonth}/${i}`);
+            const formattedDay = i.toString().padStart(2, '0');
+            console.log(`${formattedDay}/${mondayMonth}/${mondayYear}`);
+            DaysofWeekArray.push(`${mondayYear}-${mondayMonth}-${formattedDay}`);
         }
         console.log(DaysofWeekArray.toString());
     }
@@ -81,17 +82,18 @@ function clearArray(){
 function sortDate(){
     TemperatureforDateArray.length = DaysofWeekArray.length;
     for(sort = 0; sort < DaysofWeekArray.length; sort++){
-        console.log(DaysofWeekArray[sort]);
-        if(DaysofWeekArray[sort].toString === TempArray[sort].date.toString){
+        console.log('Day'+DaysofWeekArray[sort]);
+        console.log('Temp'+TempArray[sort].date);
+        if(DaysofWeekArray[sort].toString() === TempArray[sort].date.toString()){
             console.log('Auuu');
             TemperatureforDateArray[sort]=(TempArray[sort]);
         }else{
             console.log('Ava');
-            for(resort = 0; resort < DaysofWeekArray.length; resort++){
-                if(DaysofWeekArray[sort].toString === TempArray[resort].date.toString){
+            IL:for(resort = 0; resort < DaysofWeekArray.length; resort++){
+                if(DaysofWeekArray[sort].toString() === TempArray[resort].date.toString()){
                     console.log('Avaaa');
                     TemperatureforDateArray[sort] = (TempArray[resort]);
-                    break;
+                    break IL;
                 }
             }
         }

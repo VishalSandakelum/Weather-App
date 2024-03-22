@@ -1,5 +1,5 @@
 const APIKEY = '7e75a14025d5437085f61907241703';
-const city = /*$('.cityinput').val()*/'Tokyo';
+const city = /*$('.cityinput').val()*/'Canada';
 const days = ['2024-03-16'];
 const currentweatherurl = `https://api.weatherapi.com/v1/current.json?key=${APIKEY}&q=${city}`;
 const forecasturl = `https://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${city}`;
